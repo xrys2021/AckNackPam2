@@ -25,7 +25,7 @@ public class TestMessage_Selection : MonoBehaviour
 
     private void Check_Correct()
     {
-        if(DialogManager.Result == "Correct")
+        if (DialogManager.Result == "Correct")
         {
             var dialogTexts = new List<DialogData>();
 

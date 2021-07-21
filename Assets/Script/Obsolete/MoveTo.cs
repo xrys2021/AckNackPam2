@@ -18,10 +18,10 @@ public class MoveTo : MonoBehaviour
     public GameObject EP2;
     public GameObject EP3;
     public GameObject EP4;
-    
+
     //Router Object
     public GameObject Router;
-    
+
     //Node Point Objects
     public GameObject Node1;
     public GameObject Node2;
@@ -47,12 +47,12 @@ public class MoveTo : MonoBehaviour
     void Update()
     {
         //Look up MoveTowards FUNCTION
-        transform.position = Vector3.MoveTowards(transform.position, Router.transform.position, Force*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, Router.transform.position, Force * Time.deltaTime);
 
         //if object collides wtih node --> change vector3.movetowards[2] to next node
         // if object collides with EndPoint --> Endpoint(score script) ++ and concatinates object name to list --> if NACK, send NACK
-            //WIN CONDITIONS: switch (movie = %, photo = completion + concat [boolean], text = boolean, email = boolean)
-            //Score after all completed (Macination will help here)
+        //WIN CONDITIONS: switch (movie = %, photo = completion + concat [boolean], text = boolean, email = boolean)
+        //Score after all completed (Macination will help here)
 
         //Instantiate for multiplying data packages
     }
