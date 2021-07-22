@@ -4,37 +4,37 @@ using JSNodeMap;
 
 public class Sort : MonoBehaviour
 {
-	private Agent agent;
-	public bool active;
+    private Agent agent;
+    public bool active;
 
-	public List<Node> waypoints = new List<Node>();
-	public int currentPointIndex;
+    public List<Node> waypoints = new List<Node>();
+    public int currentPointIndex;
 
-	void Awake()
-	{
-		agent = GetComponent<Agent>();
+    void Awake()
+    {
+        agent = GetComponent<Agent>();
 
-		agent.OnCannotReach += NextWaypoint;
-		agent.OnMoveEnd += NextWaypoint;
-	}
+        agent.OnCannotReach += NextWaypoint;
+        agent.OnMoveEnd += NextWaypoint;
+    }
 
-	void Start()
-	{
-		NextWaypoint(waypoints[currentPointIndex]);
-	}
+    void Start()
+    {
+        NextWaypoint(waypoints[currentPointIndex]);
+    }
 
-	private void NextWaypoint(Node targetNode)
-	{
-		if (active)
-		{
-			if (currentPointIndex >= waypoints.Count)
-			{
-				currentPointIndex = 0;
-			}
+    private void NextWaypoint(Node targetNode)
+    {
+        if (active)
+        {
+            if (currentPointIndex >= waypoints.Count)
+            {
+                currentPointIndex = 0;
+            }
 
-			agent.MoveToTarget(waypoints[currentPointIndex]);
+            agent.MoveToTarget(waypoints[currentPointIndex]);
 
-			currentPointIndex++;
-		}
-	}
+            currentPointIndex++;
+        }
+    }
 }

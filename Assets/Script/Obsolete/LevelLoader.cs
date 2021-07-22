@@ -12,7 +12,7 @@ public class LevelLoader : MonoBehaviour
     public bool load;
 
 
-    public void LoadNextLevel( bool load)
+    public void LoadNextLevel(bool load)
     {
         float time = 1f;
         float start = 0;
@@ -26,34 +26,35 @@ public class LevelLoader : MonoBehaviour
             start = 1; finish = 0;
         }
 
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1, time,start, finish, load));
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1, time, start, finish, load));
         //updating = true;
     }
 
-    IEnumerator LoadLevel(int levelIndex,float time, float start, float finish,bool load)
+    IEnumerator LoadLevel(int levelIndex, float time, float start, float finish, bool load)
     {
         //transition.SetTrigger("Start");
         float timeKeep = 0f;
         float startTime = Time.time;
         float elapsed = 0f;
-        while(timeKeep<= time)
+        while (timeKeep <= time)
         {
             elapsed = Time.time - startTime;
             timeKeep += Time.deltaTime;
             var color = callToBlack.color;
-            color.a = Mathf.Lerp(start,finish, elapsed / time);
+            color.a = Mathf.Lerp(start, finish, elapsed / time);
             //Debug.Log(color.a);
-            callToBlack.color= color;
+            callToBlack.color = color;
             Debug.Log(callToBlack.color.a);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        if(load == true) {
-        SceneManager.LoadScene(levelIndex);
+        if (load == true)
+        {
+            SceneManager.LoadScene(levelIndex);
         }
     }
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "CaveScene")
+        if (SceneManager.GetActiveScene().name == "CaveScene")
         {
             LoadNextLevel(false);
         }
