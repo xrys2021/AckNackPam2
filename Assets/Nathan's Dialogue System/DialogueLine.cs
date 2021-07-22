@@ -17,7 +17,7 @@ namespace DialogueSystem
         {
             textHolder = GetComponent<Text>();
 
-            StartCoroutine(WriteText(input, textHolder, textColor, textFont));
+            //StartCoroutine(WriteText(input, textHolder, textColor, textFont));
         }
 
 
