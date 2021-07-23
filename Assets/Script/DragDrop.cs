@@ -10,15 +10,15 @@ public class DragDrop : MonoBehaviour
     private Vector3 mOffset;
     private float mZCoord;
     [SerializeField] private bool draggable;
-    [SerializeField] private bool clicked;
 
     //Illumination variables
     [SerializeField] private bool sourceCollide;
     [SerializeField] private Material Material1;
     [SerializeField] private Material Material2;
     [SerializeField] private bool selected;
-    public GameObject destination;
-    [SerializeField] GameObject source;
+    [SerializeField] private Map mapping;
+    public Node destination;
+    [SerializeField] Node source;
 
 
     //Drag Functions
@@ -32,7 +32,7 @@ public class DragDrop : MonoBehaviour
             mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
         }
     }
-
+    //Camera to move object functions
     private Vector3 GetMouseAsWorldPoint()
     {
         // Pixel coordinates of mouse (x,y)
@@ -43,37 +43,44 @@ public class DragDrop : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
+    //Drag Function
     void OnMouseDrag()
     {
         transform.position = GetMouseAsWorldPoint() + mOffset;
     }
 
-    //Illumination + Agent functions
+    //Functions for highlighting node
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Source"))
+        {
+            sourceCollide = true;
+            other.gameObject.GetComponent<MeshRenderer>().material = Material1;
+            selected = true;
+            source = other.GetComponent<Node>();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Source"))
+        {
+            other.gameObject.GetComponent<MeshRenderer>().material = Material2;
+        }
+    }
+
+    //+ Agent functions
     private void OnMouseUp()
     {
         if (draggable == true && selected == true)
         {
             draggable = false;
-            
+            var pack = GetComponent<Agent>();
+            pack.Initialize(mapping,source);
+            pack.MoveToTarget(destination);
         }
     }
     //On Mouse Drop
     //Agent.Intialize(NodeMap);
     //Agent.MovetoTarget(destination);
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "source" && clicked == true)
-        {
-            other.gameObject.GetComponent<MeshRenderer>().material = Material1;
-            selected = true;
-            source = other.gameObject;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "source" && clicked == true)
-        {
-            other.gameObject.GetComponent<MeshRenderer>().material = Material2;
-        }
-    }
+    
 }
