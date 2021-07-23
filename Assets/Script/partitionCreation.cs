@@ -5,38 +5,38 @@ using JSNodeMap;
 
 public class partitionCreation : MonoBehaviour
 {
-
-    public int sourceNum;
-    public Transform sourceDropOff;
-    public int count;
-    public int packageNumber;
-    public GameObject original;
+    //Variables for Drag and Drop
+    [SerializeField] private Transform sourceDropOff;
+    [SerializeField] private int count;
+    [SerializeField] private int packageNumber;
+    [SerializeField] private GameObject original;
     [SerializeField] private bool replacePacket = false;
-
+    [SerializeField] private GameObject Parent1;
+  
     private void Start()
-    {
-        Instantiate(original, sourceDropOff.position, sourceDropOff.rotation);
+        {
+        var clone1= Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
+        clone1.name = original.name + "" + count;
     }
+
     private void Update()
     {
         if (replacePacket == true && count < packageNumber)
         {
             //Rigidbody dataPackage;
-            Instantiate(original, sourceDropOff.position, sourceDropOff.rotation);
-            //dataPackage.gameObject.name
-            replacePacket = false;
+            var clone = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation,Parent1.transform);
+            clone.name= original.name + ""+ count;
             count++;
+            replacePacket = false;
         }
     }
 
-
     //Make 4 objects -->add component RidgedBody --> Unique Names(Name is the VARIABLE) in Unity not here
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Packets")
+        private void OnTriggerExit(Collider other)
+        {
+        if (other.gameObject.tag == "Packet")
         {
             replacePacket = true;
         }
-    }
+        }
 }
