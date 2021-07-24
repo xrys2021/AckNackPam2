@@ -19,6 +19,7 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private Map mapping;
     public Node destination;
     [SerializeField] Node source;
+    public Transform spawnLocationTrs;
 
 
     //Drag Functions
@@ -65,6 +66,9 @@ public class DragDrop : MonoBehaviour
         if (other.gameObject.CompareTag("Source"))
         {
             other.gameObject.GetComponent<MeshRenderer>().material = Material2;
+            source = null;
+            selected = false;
+
         }
     }
 
@@ -79,8 +83,5 @@ public class DragDrop : MonoBehaviour
             pack.MoveToTarget(destination);
         }
     }
-    //On Mouse Drop
-    //Agent.Intialize(NodeMap);
-    //Agent.MovetoTarget(destination);
     
 }
