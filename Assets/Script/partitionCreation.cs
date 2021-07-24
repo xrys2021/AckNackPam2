@@ -16,7 +16,8 @@ public class partitionCreation : MonoBehaviour
     private void Start()
         {
         var clone1= Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
-        clone1.name = original.name + "" + count;
+        clone1.GetComponent<DragDrop>().spawnLocationTrs = sourceDropOff;
+        clone1.name = original.name + " " + count;
     }
 
     private void Update()
@@ -25,7 +26,8 @@ public class partitionCreation : MonoBehaviour
         {
             //Rigidbody dataPackage;
             var clone = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation,Parent1.transform);
-            clone.name= original.name + ""+ count;
+            clone.GetComponent<DragDrop>().spawnLocationTrs = sourceDropOff;
+            clone.name= original.name + " "+ count;
             count++;
             replacePacket = false;
         }
