@@ -1,69 +1,79 @@
 ﻿using UnityEngine;
 
-namespace JSNodeMap {
-	[System.Serializable]
-	[ExecuteInEditMode]
-	public class Marker : MonoBehaviour {
-		public SpriteRenderer spriteRenderer;
-		public MeshRenderer meshRenderer;
-		public MeshFilter meshFilter;
+namespace JSNodeMap
+{
+    [System.Serializable]
+    [ExecuteInEditMode]
+    public class Marker : MonoBehaviour
+    {
+        public SpriteRenderer spriteRenderer;
+        public MeshRenderer meshRenderer;
+        public MeshFilter meshFilter;
 
-		public int markerType;
+        public int markerType;
 
-		public Path nodePath;
+        public Path nodePath;
 
-		public void Initialize(Path path) {
-			nodePath = path;
-			markerType = path.markerType;
-			SetRenderer(path);
+        public void Initialize(Path path)
+        {
+            nodePath = path;
+            markerType = path.markerType;
+            SetRenderer(path);
 
-		}
+        }
 
-		void SetRenderer(Path path) {
-			if (path.nodeMap.drawMode == DrawMode.Sprite) {
-				// 2D
-				
-				// Clear out 3D renderers
-				DestroyImmediate(meshFilter);
-				DestroyImmediate(meshRenderer);
-				meshFilter = null;
-				meshRenderer = null;
+        void SetRenderer(Path path)
+        {
+            if (path.nodeMap.drawMode == DrawMode.Sprite)
+            {
+                // 2D
 
-				// Set 2D renderer
-				if (spriteRenderer == null) {
-					spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-				}
-				spriteRenderer.sprite = path.nodeMap.nodeData.markerTypes[markerType].sprite;
+                // Clear out 3D renderers
+                DestroyImmediate(meshFilter);
+                DestroyImmediate(meshRenderer);
+                meshFilter = null;
+                meshRenderer = null;
 
-				spriteRenderer.sortingLayerName = "NodeMap";
-				spriteRenderer.sortingOrder = 1;
+                // Set 2D renderer
+                if (spriteRenderer == null)
+                {
+                    spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+                }
+                spriteRenderer.sprite = path.nodeMap.nodeData.markerTypes[markerType].sprite;
 
-				Vector3 moveDirection = path.toNode.transform.position - path.fromNode.transform.position;
-				float angle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
-				// transform.localRotation = Quaternion.Euler(0f, 0f, angle);
-				transform.Rotate(90f, 0f, - angle);
-			} else {
-				// 3D
+                spriteRenderer.sortingLayerName = "NodeMap";
+                spriteRenderer.sortingOrder = 1;
 
-				// Clear out 2D renderers
-				DestroyImmediate(spriteRenderer);
-				spriteRenderer = null;
+                Vector3 moveDirection = path.toNode.transform.position - path.fromNode.transform.position;
+                float angle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
+                // transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+                transform.Rotate(90f, 0f, -angle);
+            }
+            else
+            {
+                // 3D
 
-				// Set 3D renderer
-				if (meshFilter == null) {
-					meshFilter = gameObject.AddComponent<MeshFilter>();
-				}
-				meshFilter.mesh = path.nodeMap.nodeData.markerTypes[markerType].mesh;
+                // Clear out 2D renderers
+                DestroyImmediate(spriteRenderer);
+                spriteRenderer = null;
 
-				if (meshRenderer == null) {
-					meshRenderer = gameObject.AddComponent<MeshRenderer>();
-				}
-				meshRenderer.sharedMaterial = path.nodeMap.nodeData.meshMaterial;
-				
-				// Set orientation
-				transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
-				transform.LookAt(path.toNode.transform);
-			}
-		}
-	}
+                // Set 3D renderer
+                if (meshFilter == null)
+                {
+                    meshFilter = gameObject.AddComponent<MeshFilter>();
+                }
+                meshFilter.mesh = path.nodeMap.nodeData.markerTypes[markerType].mesh;
+
+                if (meshRenderer == null)
+                {
+                    meshRenderer = gameObject.AddComponent<MeshRenderer>();
+                }
+                meshRenderer.sharedMaterial = path.nodeMap.nodeData.meshMaterial;
+
+                // Set orientation
+                transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+                transform.LookAt(path.toNode.transform);
+            }
+        }
+    }
 }

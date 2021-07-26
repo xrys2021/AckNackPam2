@@ -2,116 +2,138 @@
 using UnityEngine;
 using System.Linq;
 
-namespace JSNodeMap {
-	public static class Pathfinding {
-		// Private methods
+namespace JSNodeMap
+{
+    public static class Pathfinding
+    {
+        // Private methods
 
-		private static float HCost(Node curNode, Node goalNode) {
-			return Vector3.Distance(curNode.transform.position, goalNode.transform.position);
-		}
+        private static float HCost(Node curNode, Node goalNode)
+        {
+            return Vector3.Distance(curNode.transform.position, goalNode.transform.position);
+        }
 
-		private static float GCost(Node curNode, Node neighbor) {
-			Path path = Map.FindValidPath(curNode, neighbor);
-			float factor = (path.fromNode == curNode) ? path.fromFactor : path.toFactor;
+        private static float GCost(Node curNode, Node neighbor)
+        {
+            Path path = Map.FindValidPath(curNode, neighbor);
+            float factor = (path.fromNode == curNode) ? path.fromFactor : path.toFactor;
 
-			return path.Distance * factor;
-		}
+            return path.Distance * factor;
+        }
 
-		// Public Methods
+        // Public Methods
 
-		public static List<Node> GetNeighbors(Node node, Agent agent = null) {
-			List<Node> neighbors = new List<Node>();
+        public static List<Node> GetNeighbors(Node node, Agent agent = null)
+        {
+            List<Node> neighbors = new List<Node>();
 
-			// Check all paths FROM this node
-			foreach (Path path in node.paths) {
-				if (AgentCanMoveAcross(path, node, agent)) {
-					neighbors.Add(path.toNode);
-				}
-			}
-		
-			// Now do the same for paths TO this node
-			foreach(Path path in node.nodeMap.mapNodes.SelectMany(n => n.paths).Where(p => p.toNode == node)) {
-				if (AgentCanMoveAcross(path, node, agent)) {
-					neighbors.Add(path.fromNode);
-				}
-			}
+            // Check all paths FROM this node
+            foreach (Path path in node.paths)
+            {
+                if (AgentCanMoveAcross(path, node, agent))
+                {
+                    neighbors.Add(path.toNode);
+                }
+            }
 
-			return neighbors;
-		}
+            // Now do the same for paths TO this node
+            foreach (Path path in node.nodeMap.mapNodes.SelectMany(n => n.paths).Where(p => p.toNode == node))
+            {
+                if (AgentCanMoveAcross(path, node, agent))
+                {
+                    neighbors.Add(path.fromNode);
+                }
+            }
 
-		public static bool AgentCanMoveAcross(Path path, Node node, Agent agent) {
-			MovementOverride moveOR = (agent == null) ? null : path.movementOverrides.FirstOrDefault(o => o.agentType == agent.agentType);
-			MovementType checkMove;
+            return neighbors;
+        }
 
-			if (moveOR == null) {
-				// No overrides. Use normal path direction
-				checkMove = path.pathDirection;
-			} else {
-				// Use override value for this agent
-				checkMove = moveOR.movement;
-			}
+        public static bool AgentCanMoveAcross(Path path, Node node, Agent agent)
+        {
+            MovementOverride moveOR = (agent == null) ? null : path.movementOverrides.FirstOrDefault(o => o.agentType == agent.agentType);
+            MovementType checkMove;
 
-			// Everyone can move on a two-way
-			if (checkMove == MovementType.TwoWay) {
-				return true;
-			}
-			// One-way allows moving from FROM to TO
-			if (checkMove == MovementType.OneWay && path.fromNode == node) {
-				return true;
-			}
-			// Reverse allows moving from TO to FROM
-			if (checkMove == MovementType.Reverse && path.toNode == node) {
-				return true;
-			}
-			// If we're here, it means it's impassable
-			return false;
-		}
+            if (moveOR == null)
+            {
+                // No overrides. Use normal path direction
+                checkMove = path.pathDirection;
+            }
+            else
+            {
+                // Use override value for this agent
+                checkMove = moveOR.movement;
+            }
 
-		public static List<Node> FindRoute(Node startNode, Node goalNode, Agent agent = null) {
-			PriorityQueue<float, Node> openNodes = new PriorityQueue<float, Node>();
-			HashSet<Node> checkedNodes = new HashSet<Node>();
+            // Everyone can move on a two-way
+            if (checkMove == MovementType.TwoWay)
+            {
+                return true;
+            }
+            // One-way allows moving from FROM to TO
+            if (checkMove == MovementType.OneWay && path.fromNode == node)
+            {
+                return true;
+            }
+            // Reverse allows moving from TO to FROM
+            if (checkMove == MovementType.Reverse && path.toNode == node)
+            {
+                return true;
+            }
+            // If we're here, it means it's impassable
+            return false;
+        }
 
-			Dictionary<Node, Node> pathTo = new Dictionary<Node, Node>();
-			Dictionary<Node, float> gCost = new Dictionary<Node, float>();
+        public static List<Node> FindRoute(Node startNode, Node goalNode, Agent agent = null)
+        {
+            PriorityQueue<float, Node> openNodes = new PriorityQueue<float, Node>();
+            HashSet<Node> checkedNodes = new HashSet<Node>();
 
-			pathTo[startNode] = null;
-			gCost[startNode] = 0f;
+            Dictionary<Node, Node> pathTo = new Dictionary<Node, Node>();
+            Dictionary<Node, float> gCost = new Dictionary<Node, float>();
 
-			openNodes.Push(0f + HCost(startNode, goalNode), startNode);
+            pathTo[startNode] = null;
+            gCost[startNode] = 0f;
 
-			while (openNodes.Count > 0) {
-				Node leafNode = openNodes.Top.Value;
-				if (leafNode == goalNode) {
-					// Success!
-					List<Node> route = new List<Node>();
-					Node pointer = goalNode;
+            openNodes.Push(0f + HCost(startNode, goalNode), startNode);
 
-					while (pointer != null) {
-						route.Add(pointer);
-						pointer = pathTo[pointer];
-					}
+            while (openNodes.Count > 0)
+            {
+                Node leafNode = openNodes.Top.Value;
+                if (leafNode == goalNode)
+                {
+                    // Success!
+                    List<Node> route = new List<Node>();
+                    Node pointer = goalNode;
 
-					route.Reverse();	// Invert route so we can follow it from start to finish
+                    while (pointer != null)
+                    {
+                        route.Add(pointer);
+                        pointer = pathTo[pointer];
+                    }
 
-					return route;
-				}
-				openNodes.Pop();
+                    route.Reverse();    // Invert route so we can follow it from start to finish
 
-				checkedNodes.Add(leafNode);
+                    return route;
+                }
+                openNodes.Pop();
 
-				List<Node> neighbors = GetNeighbors(leafNode, agent);
-				for (int i = 0; i < neighbors.Count; i++) {
-					Node neighbor = neighbors[i];
-					if (! checkedNodes.Contains(neighbor) && ! openNodes.Contains(neighbor)) {
-						gCost[neighbor] = gCost[leafNode] + GCost(leafNode, neighbor);
-						pathTo[neighbor] = leafNode;
-						openNodes.Push(gCost[neighbor] + HCost(neighbor, goalNode), neighbor);
-					}
-				}
-			}
+                checkedNodes.Add(leafNode);
 
-			// No route found
-			return null;
-		}
-	}
+                List<Node> neighbors = GetNeighbors(leafNode, agent);
+                for (int i = 0; i < neighbors.Count; i++)
+                {
+                    Node neighbor = neighbors[i];
+                    if (!checkedNodes.Contains(neighbor) && !openNodes.Contains(neighbor))
+                    {
+                        gCost[neighbor] = gCost[leafNode] + GCost(leafNode, neighbor);
+                        pathTo[neighbor] = leafNode;
+                        openNodes.Push(gCost[neighbor] + HCost(neighbor, goalNode), neighbor);
+                    }
+                }
+            }
+
+            // No route found
+            return null;
+        }
+    }
 }
