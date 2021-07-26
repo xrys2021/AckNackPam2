@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
+  m_Color: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -501,8 +501,10 @@ GameObject:
   - component: {fileID: 516581887}
   - component: {fileID: 516581888}
   - component: {fileID: 516581889}
+  - component: {fileID: 516581890}
+  - component: {fileID: 516581891}
   m_Layer: 0
-  m_Name: First Dialogue scene #1
+  m_Name: First Dialogue scene #2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,8 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 2
   indentLevel: 0
-  storyText: Your friend, Jane McGuffin, was taken by an evil villain!  The evil
-    Mr. eror shut down the internet to kidnap her. She sent me to ask for your help!
+  storyText: Now that you have Internet we need to get everyone else online.
   description: 
   character: {fileID: 1808618179}
   portrait: {fileID: 0}
@@ -580,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: Hello player! My name is Fetch.
+  storyText: 'Awesome! You did it! '
   description: 
   character: {fileID: 1808618179}
   portrait: {fileID: 21300000, guid: a47bd260eaea4470b920e16131759d5f, type: 3}
@@ -639,6 +640,7 @@ MonoBehaviour:
   - {fileID: 516581871}
   - {fileID: 516581882}
   - {fileID: 516581877}
+  - {fileID: 516581890}
   - {fileID: 516581881}
   suppressAllAutoSelections: 0
 --- !u!114 &516581875
@@ -668,7 +670,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 516581886}
   selectedCommands:
-  - {fileID: 516581889}
+  - {fileID: 516581883}
   variables: []
   description: 
   stepPause: 0
@@ -696,7 +698,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &516581877
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -790,7 +792,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 2
+    floatVal: 1
   durationOLD: 0
 --- !u!114 &516581881
 MonoBehaviour:
@@ -806,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 8
   indentLevel: 0
-  text: Oh no!  Not Jane! Let's go save her!
+  text: I understand now. Now what?
   description: 
   targetBlock: {fileID: 516581879}
   hideIfVisited: 0
@@ -831,7 +833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 9
   indentLevel: 0
-  storyText: 'I need your help finding Jane!  Can you help me!?
+  storyText: 'The bad guy told her parents no police or adults.  So before they took
+    her, she sent me.
 
 '
   description: 
@@ -860,8 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  storyText: "Try to send a text to your mom about that homework you forgot.  I\u2019ll
-    help you."
+  storyText: But at the moment you need more practice before we can find any clues.
   description: 
   character: {fileID: 1808618179}
   portrait: {fileID: 0}
@@ -888,9 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 0
-  storyText: 'Great! Well first we need to help get your phone back online.
-
-'
+  storyText: "Well we need to get more people on the network. \n"
   description: 
   character: {fileID: 1808618179}
   portrait: {fileID: 0}
@@ -953,10 +953,11 @@ MonoBehaviour:
   - {fileID: 516581889}
   - {fileID: 516581884}
   - {fileID: 516581883}
+  - {fileID: 516581891}
   suppressAllAutoSelections: 0
 --- !u!114 &516581887
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -986,7 +987,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &516581888
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1004,7 +1005,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &516581889
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1020,6 +1021,41 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 1
   durationOLD: 0
+--- !u!114 &516581890
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516581869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 22
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &516581891
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516581869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae67a23cb4aa74793b41258ae40bf321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 23
+  indentLevel: 0
+  stopParentFlowchart: 0
+  targetFlowcharts:
+  - {fileID: 516581875}
 --- !u!1 &705345055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c75ee413b909245cc9051b0f93666428, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1491fe41a5912470f91509e0d93f7bb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2055,8 +2091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 610, y: -58}
-  m_SizeDelta: {x: 1106, y: 71}
+  m_AnchoredPosition: {x: 292.611, y: -58.177}
+  m_SizeDelta: {x: 471.221, y: 71.355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469611111
 MonoBehaviour:
@@ -2085,7 +2121,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 50
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -2288,7 +2324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: Fetch
-  nameColor: {r: 0.08139017, g: 0.12259253, b: 0.5566038, a: 1}
+  nameColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   soundEffect: {fileID: 0}
   portraits:
   - {fileID: 21300000, guid: a47bd260eaea4470b920e16131759d5f, type: 3}
@@ -2334,7 +2370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854180084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16, y: -2, z: 0}
+  m_LocalPosition: {x: 4, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 705345056}
@@ -2352,7 +2388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c387d3e32404bcc91c60318d766bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewSize: 300
+  viewSize: 219.38744
   primaryAspectRatio: {x: 4, y: 3}
   secondaryAspectRatio: {x: 2, y: 1}
 --- !u!1 &1887483762
@@ -2368,7 +2404,7 @@ GameObject:
   - component: {fileID: 1887483764}
   - component: {fileID: 1887483763}
   m_Layer: 5
-  m_Name: Scene #1
+  m_Name: Scene #2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
