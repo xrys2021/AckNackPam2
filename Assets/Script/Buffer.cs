@@ -51,13 +51,6 @@ public class Buffer : MonoBehaviour
             }
             else
             {
-                // string goName= other.gameObject.name;
-                // if (!goName.Contains("Video"))
-                // {
-
-                // }
-                // Node goSource = other.gameObject.GetComponent<DragDrop>().destination;
-                // SendNack(goName, goSource);
                 Destroy(other.gameObject);
                 DragDrop dragDrop = other.GetComponent<DragDrop>();
                 Instantiate(agentTypesDict[other.name].agentPrefab, dragDrop.spawnLocationTrs.position, Quaternion.identity);
@@ -73,16 +66,7 @@ public class Buffer : MonoBehaviour
         agent.Play();
         agents.Remove(agent);
     }
-    
-    // private void SendNack(string goName, Node goSource)
-    // {
-    //     var agent = map.CreateAgent();
-    //     agent.name = goName;
-    //     agent.tag = "NACK";
-    //     agent.MoveToTarget(goSource);
-
-    // }
-   
+       
    [Serializable]
    public struct AgentType
    {
