@@ -53,7 +53,15 @@ public class Buffer : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 DragDrop dragDrop = other.GetComponent<DragDrop>();
-                Instantiate(agentTypesDict[other.name].agentPrefab, dragDrop.spawnLocationTrs.position, Quaternion.identity);
+                string agentTypeName = other.name;
+                int indexOfSpsace = other.name.IndexOf(" ");
+                if (indexOfSpsace != -1)
+                    agentTypeName = agentTypeName.Remove(indexOfSpsace);
+                print(" Yay " + agentTypeName);
+                if (dragDrop.spawnLocationTrs.name.Contains("1"))
+                    Instantiate(agentTypesDict[agentTypeName].dragDrop1, dragDrop.spawnLocationTrs.position, Quaternion.identity);
+                else
+                    Instantiate(agentTypesDict[agentTypeName].dragDrop2, dragDrop.spawnLocationTrs.position, Quaternion.identity);
             }
         }
     }
@@ -70,7 +78,8 @@ public class Buffer : MonoBehaviour
    [Serializable]
    public struct AgentType
    {
-       public GameObject agentPrefab;
+       public DragDrop dragDrop1;
+       public DragDrop dragDrop2;
        public string name;
    }
 }
