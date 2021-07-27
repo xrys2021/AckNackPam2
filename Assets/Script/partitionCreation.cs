@@ -12,10 +12,10 @@ public class partitionCreation : MonoBehaviour
     [SerializeField] private GameObject original;
     [SerializeField] private bool replacePacket = false;
     [SerializeField] private GameObject Parent1;
-  
+
     private void Start()
-        {
-        var clone1= Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
+    {
+        var clone1 = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
         clone1.GetComponent<DragDrop>().spawnLocationTrs = sourceDropOff;
         clone1.name = original.name + " " + count;
     }
@@ -25,20 +25,20 @@ public class partitionCreation : MonoBehaviour
         if (replacePacket == true && count < packageNumber)
         {
             //Rigidbody dataPackage;
-            var clone = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation,Parent1.transform);
+            var clone = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
             clone.GetComponent<DragDrop>().spawnLocationTrs = sourceDropOff;
-            clone.name= original.name + " "+ count;
+            clone.name = original.name + " " + count;
             count++;
             replacePacket = false;
         }
     }
 
     //Make 4 objects -->add component RidgedBody --> Unique Names(Name is the VARIABLE) in Unity not here
-        private void OnTriggerExit(Collider other)
-        {
+    private void OnTriggerExit(Collider other)
+    {
         if (other.gameObject.tag == "Packet")
         {
             replacePacket = true;
         }
-        }
+    }
 }
