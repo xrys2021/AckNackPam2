@@ -1,18 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSNodeMap;
+
 
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    //Variables to grab information to find out proper destination.
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

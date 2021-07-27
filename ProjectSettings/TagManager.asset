@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Packet
   - Source
+  - Spawner
   layers:
   - Default
   - TransparentFX
