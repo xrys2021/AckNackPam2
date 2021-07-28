@@ -7,6 +7,7 @@ public class partitionCreation : MonoBehaviour
 {
     //Variables for Drag and Drop
     [SerializeField] private Transform sourceDropOff;
+    [SerializeField] private Transform resetPositionTrs;
     [SerializeField] private int count;
     [SerializeField] private int packageNumber;
     [SerializeField] private GameObject original;
@@ -16,7 +17,7 @@ public class partitionCreation : MonoBehaviour
     private void Start()
     {
         var clone1 = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
-        clone1.GetComponent<DragDrop>().spawnLocationTrs = sourceDropOff;
+        clone1.GetComponent<DragDrop>().spawnLocationTrs = resetPositionTrs;
         clone1.name = original.name + " " + count;
     }
 
@@ -26,7 +27,8 @@ public class partitionCreation : MonoBehaviour
         {
             //Rigidbody dataPackage;
             var clone = Instantiate(original, sourceDropOff.position, sourceDropOff.rotation, Parent1.transform);
-            clone.GetComponent<DragDrop>().spawnLocationTrs = sourceDropOff;
+            DragDrop dragDrop = clone.GetComponent<DragDrop>();
+            dragDrop.spawnLocationTrs = resetPositionTrs;
             clone.name = original.name + " " + count;
             count++;
             replacePacket = false;
