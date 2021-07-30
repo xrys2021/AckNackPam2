@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarWorldSpace : MonoBehaviour
+public class HealthBarWorldSpace2 : MonoBehaviour
 {
     [SerializeField]
     private Image foregroundImage;
@@ -13,7 +13,7 @@ public class HealthBarWorldSpace : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentInParent<HealthWorldSpace>().OnHealthPctChanged += HandleHealthChanged;
+        GetComponentInParent<HealthWorldSpace2>().OnHealthPctChanged += HandleHealthChanged;
     }
 
     private void HandleHealthChanged(float pct)

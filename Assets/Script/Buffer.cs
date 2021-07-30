@@ -41,7 +41,7 @@ public class Buffer : MonoBehaviour
         if(other.gameObject.tag == "Packet")
         {
             Agent agent=other.GetComponent<Agent>();
-            if(agents.Count +1 < bufferLimit)
+            if(agents.Count +1 <= bufferLimit)
             {
                 agents.Add(agent);
                 agent.Pause();
