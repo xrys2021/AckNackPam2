@@ -503,6 +503,8 @@ GameObject:
   - component: {fileID: 516581889}
   - component: {fileID: 516581890}
   - component: {fileID: 516581891}
+  - component: {fileID: 516581892}
+  - component: {fileID: 516581893}
   m_Layer: 0
   m_Name: First Dialogue scene #1
   m_TagString: Untagged
@@ -626,7 +628,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 62
     y: 68
-    width: 71
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -670,8 +672,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 516581886}
-  selectedCommands:
-  - {fileID: 516581891}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -764,7 +765,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 252
     y: 74
-    width: 106
+    width: 146
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -943,7 +944,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 459
     y: 73
-    width: 61
+    width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -957,6 +958,8 @@ MonoBehaviour:
   - {fileID: 516581884}
   - {fileID: 516581883}
   - {fileID: 516581891}
+  - {fileID: 516581893}
+  - {fileID: 516581892}
   suppressAllAutoSelections: 0
 --- !u!114 &516581887
 MonoBehaviour:
@@ -1044,21 +1047,55 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &516581891
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516581869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae67a23cb4aa74793b41258ae40bf321, type: 3}
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 23
   indentLevel: 0
-  stopParentFlowchart: 0
-  targetFlowcharts:
-  - {fileID: 516581875}
+--- !u!114 &516581892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516581869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 24
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: NodeMapTest
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
+--- !u!114 &516581893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516581869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 25
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!1 &705345055
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class HealthBarWorldSpace : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentInParent<HealthWorldSpace>().OnHealthPctChanged += HandleHealthChanged;
+        GetComponentInParent<ScoreCounter>().OnHealthPctChanged += HandleHealthChanged;
     }
 
     private void HandleHealthChanged(float pct)
@@ -36,10 +36,5 @@ public class HealthBarWorldSpace : MonoBehaviour
         foregroundImage.fillAmount = pct;
     }
 
-    //private void LateUpdate()
-    //{
-       // transform.LookAt(Camera.main.transform);
-       // transform.Rotate(0, 115, 0);
-   // }
 }
 
