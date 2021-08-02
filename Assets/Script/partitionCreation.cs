@@ -40,6 +40,7 @@ public class partitionCreation : MonoBehaviour
             clone.name = origin.nameType + " " + count;
             count++;
             replacePacket = false;
+            GetComponentInParent<HealthWorldSpace2>().ModifyHealth (count);
         }
     }
 

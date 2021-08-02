@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5076249471256584428}
   - component: {fileID: 5076249471256584429}
   - component: {fileID: 5076249471256584430}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 5076249471596415824}
   - component: {fileID: 5076249471596415825}
   - component: {fileID: 5076249471596415826}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 5076249472274888027}
   - component: {fileID: 5076249472274888100}
   - component: {fileID: 5076249472274888025}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5076249472292666102}
   - component: {fileID: 5076249472292666090}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DataBlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 579736997910138643}
   - component: {fileID: 4477579851743757791}
   - component: {fileID: 3381527858814067075}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Token
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5726044439360618577}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2

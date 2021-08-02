@@ -13,10 +13,11 @@ public class HealthWorldSpace2 : MonoBehaviour
    
 
     public event Action<float> OnHealthPctChanged = delegate { };
-
+    private void Start(){
+        maxCount = source.GetComponent<dataTypeStorage>().maxCount;
+    }
     private void OnEnable()
     {
-        maxCount = source.GetComponent<partitionCreation>().maxCount;
         currentHealth = maxCount;
     }
 
@@ -28,9 +29,11 @@ public class HealthWorldSpace2 : MonoBehaviour
         OnHealthPctChanged(currentHealthPct);
     }
 
-    public void Update()
-    {
-        var count = source.GetComponent<partitionCreation>().count;
-        ModifyHealth(count);
-    }
+    // public void Update()
+    // {
+    //     print("1 " + source);
+    //     print("2 " + source.GetComponent<dataTypeStorage>());
+    //     var count = source.GetComponentInChildren<partitionCreation>().count;
+    //     ModifyHealth(count);
+    // }
 }
