@@ -25,6 +25,7 @@ public class Buffer : MonoBehaviour
 
     void Start()
     {
+        
         images = new Image[bufferLimit];
         for (int i = 0; i < bufferLimit; i++)
         {
