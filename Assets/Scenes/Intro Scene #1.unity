@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -503,8 +503,8 @@ GameObject:
   - component: {fileID: 516581889}
   - component: {fileID: 516581890}
   - component: {fileID: 516581891}
-  - component: {fileID: 516581892}
   - component: {fileID: 516581893}
+  - component: {fileID: 516581892}
   m_Layer: 0
   m_Name: First Dialogue scene #1
   m_TagString: Untagged
@@ -530,7 +530,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1808618179}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: a47bd260eaea4470b920e16131759d5f, type: 3}
+  portrait: {fileID: 21300000, guid: 828c97dec45164cef937cf4db7197518, type: 3}
   offset: 0
   fromPosition: {fileID: 1188981202}
   toPosition: {fileID: 1018205359}
@@ -628,7 +628,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 62
     y: 68
-    width: 111
+    width: 111.416145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -659,11 +659,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 79.077324, y: 122.300705}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 1
+  blockViewHeight: 447
+  zoom: 0.69200045
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -672,7 +672,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 516581886}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 516581892}
   variables: []
   description: 
   stepPause: 0
@@ -765,7 +766,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 252
     y: 74
-    width: 146
+    width: 146.82074
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -944,7 +945,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 459
     y: 73
-    width: 101
+    width: 102.02309
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1047,7 +1048,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &516581891
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1071,16 +1072,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 24
+  itemId: 26
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: NodeMapTest
+    stringVal: One
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &516581893
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2367,7 +2368,7 @@ MonoBehaviour:
   nameColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: a47bd260eaea4470b920e16131759d5f, type: 3}
+  - {fileID: 21300000, guid: 828c97dec45164cef937cf4db7197518, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 987153413}
   description: 
@@ -2611,7 +2612,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 155
+    width: 157.65546
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2636,11 +2637,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 122.57819, y: 119.11431}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.41800022
   scrollViewRect:
     serializedVersion: 2
     x: -343
