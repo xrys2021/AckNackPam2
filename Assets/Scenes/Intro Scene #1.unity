@@ -628,7 +628,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 62
     y: 69
-    width: 71
+    width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -766,7 +766,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 252
     y: 74
-    width: 106
+    width: 146
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -945,7 +945,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 459
     y: 73
-    width: 61
+    width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
