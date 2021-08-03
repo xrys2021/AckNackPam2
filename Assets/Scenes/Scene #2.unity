@@ -528,7 +528,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1808618179}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: a47bd260eaea4470b920e16131759d5f, type: 3}
+  portrait: {fileID: 21300000, guid: 3e11461be7fc14f4480312929a5f3b63, type: 3}
   offset: 0
   fromPosition: {fileID: 1188981202}
   toPosition: {fileID: 1018205359}
@@ -624,7 +624,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 62
-    y: 68
+    y: 69
     width: 71
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -667,10 +667,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 516581886}
-  selectedCommands:
-  - {fileID: 516581883}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -2327,7 +2325,7 @@ MonoBehaviour:
   nameColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: a47bd260eaea4470b920e16131759d5f, type: 3}
+  - {fileID: 21300000, guid: 3e11461be7fc14f4480312929a5f3b63, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 987153413}
   description: 
