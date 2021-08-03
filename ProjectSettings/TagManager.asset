@@ -7,6 +7,7 @@ TagManager:
   - Packet
   - Source
   - Spawner
+  - Agents
   layers:
   - Default
   - TransparentFX
