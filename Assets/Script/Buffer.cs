@@ -25,12 +25,13 @@ public class Buffer : MonoBehaviour
 
     void Start()
     {
-        
+        //Create Buffer Setup/Animation
         images = new Image[bufferLimit];
         for (int i = 0; i < bufferLimit; i++)
         {
             images[i] = Instantiate(imagePrefab, imageParent);
         }
+        //Adding Specs to the dictionary
         for (int i = 0; i < agentTypes.Length; i++)
         {
             AgentType agentType = agentTypes[i];
