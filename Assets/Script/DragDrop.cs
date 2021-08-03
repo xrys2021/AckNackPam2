@@ -12,7 +12,6 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private bool draggable;
 
     //Illumination variables
-    [SerializeField] private bool sourceCollide;
     [SerializeField] private Material Material1;
     [SerializeField] private Material Material2;
     [SerializeField] private bool selected;
@@ -55,7 +54,6 @@ public class DragDrop : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Source"))
         {
-            sourceCollide = true;
             other.gameObject.GetComponent<MeshRenderer>().material = Material1;
             selected = true;
             source = other.GetComponent<Node>();
