@@ -30,13 +30,7 @@ public class ScoreStorage : MonoBehaviour
         {
             string name = other.name.Split(' ')[0].Trim();
             print(name);
-
-            // for (int i = 0; i < scoresDict.Length; i++)
-            // {
-                
-            // }
-
-            
+           
         }
     }
 
