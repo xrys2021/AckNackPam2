@@ -9,6 +9,7 @@ public class SoundScript : MonoBehaviour
     public Button musicToggleButton;
     public Sprite musicOnSprite;
     public Sprite musicOffSprite;
+    public bool mute;
 
     void Start () {
         music = GameObject.FindObjectOfType<Music>();
@@ -28,12 +29,14 @@ public class SoundScript : MonoBehaviour
     void UpdateIconAndVolume()
     {
         if (PlayerPrefs.GetInt( "Muted", 0) == 0)
-        {
+        { 
+            mute=true;
             AudioListener.volume = 1;
             musicToggleButton.GetComponent<Image>().sprite = musicOnSprite;
         }
         else
         {
+            mute=false;
             AudioListener.volume = 0;
             musicToggleButton.GetComponent<Image>().sprite = musicOffSprite;
         }
