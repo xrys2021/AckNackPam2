@@ -3,42 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
+
 public class ScoreManagerGlobal : MonoBehaviour
 {
-    //Variables for scoring
-    private GameObject[] EndPoints;
-    private GameObject[] packets;
+    [SerializeField] int max;
+    [SerializeField] int count;
 
-    private GameObject[][] scoreCreated;
+    public bool winMet;
 
-    private int maxScore;
-
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        packets = GameObject.FindGameObjectsWithTag("Packet");
-        EndPoints = GameObject.FindGameObjectsWithTag("Finish");
-        // print($"EndPoints prints: {EndPoints}");
-        foreach (var item in EndPoints)
+        if (other.gameObject.tag == "Packet")
         {
-            print($"packets prints: {item.name}");
+            count++;
         }
-        // createScore(packets, EndPoints);
+        if (count == max)
+        {
+            winMet = true;
+            print("hello World");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
+
+    //Obsolete CODE-- Saving for future
+    //Variables for scoring
+    // private GameObject[] EndPoints;
+    // private GameObject[] packets;
+    // private GameObject[][] scoreCreated;
+    // private int maxScore;
+
+    // // Start is called before the first frame update
+    // void Start()
+    // {
+    //     packets = GameObject.FindGameObjectsWithTag("Packet");
+    //     EndPoints = GameObject.FindGameObjectsWithTag("Finish");
+    //     // print($"EndPoints prints: {EndPoints}");
+    //     foreach (var item in EndPoints)
+    //     {
+    //         print($"packets prints: {item.name}");
+    //     }
+    //     // createScore(packets, EndPoints);
+    // }
+
+    // // Update is called once per frame
+    // void Update()
+    // {
+    // }
 
     // private void createScore(packets, Endpoints)
     // {
     //     for (int i = 0; i < Endpoints.Length; i++)
     //     {
-
     //     }
     // }
 
