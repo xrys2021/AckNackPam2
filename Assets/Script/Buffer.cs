@@ -65,7 +65,11 @@ public class Buffer : MonoBehaviour
                 //     Instantiate(agentTypesDict[agentTypeName].dragDrop1, dragDrop.spawnLocationTrs.position, Quaternion.identity);
                 // else
                 // Instantiate(agentTypesDict[agentTypeName].dragDrop2, dragDrop.spawnLocationTrs.position, Quaternion.identity);
-                Instantiate(dragDrop.original,dragDrop.spawnLocationTrs.position,Quaternion.identity);
+                var clone = Instantiate(dragDrop.original,dragDrop.spawnLocationTrs.position,Quaternion.identity);
+                var parent = GameObject.FindGameObjectWithTag("Agents");
+                clone.transform.SetParent(parent.transform);
+                dragDrop.enabled=true;
+                dragDrop.draggable = true;
             }
         }
     }

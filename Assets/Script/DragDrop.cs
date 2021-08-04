@@ -9,7 +9,7 @@ public class DragDrop : MonoBehaviour
 	//Drag and Drop Mechanic Variables
 	private Vector3 mOffset;
 	private float mZCoord;
-	[SerializeField] private bool draggable;
+	[SerializeField] public bool draggable;
 
 	//Illumination variables
 	[SerializeField] private Material Material1;
