@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Obsolete/NodeMapTest.unity
     guid: 65d1ed2f6a3946c49b5bbe438ab00190
+  - enabled: 0
+    path: Assets/Scenes/Utilities/MainUI.unity
+    guid: bde02f9580af3d04ba1189ae958da5b6
   m_configObjects: {}

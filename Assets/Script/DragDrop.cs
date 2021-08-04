@@ -9,7 +9,7 @@ public class DragDrop : MonoBehaviour
 	//Drag and Drop Mechanic Variables
 	private Vector3 mOffset;
 	private float mZCoord;
-	[SerializeField] private bool draggable;
+	[SerializeField] public bool draggable;
 
 	//Illumination variables
 	[SerializeField] private Material Material1;
@@ -26,13 +26,13 @@ public class DragDrop : MonoBehaviour
     //Drag Functions
     void OnMouseDown()
     {
-        if (draggable == true)
-        {
+        //if (draggable == true)
+       // {
             mZCoord = Camera.main.WorldToScreenPoint(
             gameObject.transform.position).z;
             // Store offset = gameobject world pos - mouse world pos
             mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
-        }
+       // }
     }
     //Camera to move object functions
     private Vector3 GetMouseAsWorldPoint()
@@ -102,9 +102,9 @@ public class DragDrop : MonoBehaviour
 	//+ Agent functions
 	private void OnMouseUp()
 	{
-		if (draggable == true && selected == true)
-		{
-			draggable = false;
+		//if (draggable == true && selected == true)
+			if (selected == true)
+			{
 			var pack = GetComponent<Agent>();
 			Debug.Log(source);
 			Debug.Log(mapping);
