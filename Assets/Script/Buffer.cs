@@ -68,8 +68,10 @@ public class Buffer : MonoBehaviour
                 var clone = Instantiate(dragDrop.original,dragDrop.spawnLocationTrs.position,Quaternion.identity);
                 var parent = GameObject.FindGameObjectWithTag("Agents");
                 clone.transform.SetParent(parent.transform);
+
                 dragDrop.enabled = true;
-                dragDrop.draggable = true;
+
+                //dragDrop.draggable = true;
             }
         }
     }
