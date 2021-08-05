@@ -13,7 +13,7 @@ public class HealthBarWorldSpace : MonoBehaviour
 
     private void Awake()
     {
-        GetComponentInParent<ScoreCounter>().OnHealthPctChanged += HandleHealthChanged;
+        GetComponentInParent<HealthWorldSpace>().OnHealthPctChanged += HandleHealthChanged;
     }
 
     private void HandleHealthChanged(float pct)
